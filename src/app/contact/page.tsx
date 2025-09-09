@@ -1,122 +1,158 @@
+"use client";
+import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [processing, setProcessing] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("🚀 Sending form data:", formData);
+
+    setProcessing(true);
+    const toastId = toast.loading("Sending message...");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await res.json();
+      console.log("🔎 API response:", result);
+
+      if (result.success) {
+        toast.success("Message sent successfully!", { id: toastId });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error(result.error || "Failed to send");
+      }
+    } catch (err: any) {
+      toast.error(err.message || "Failed to send", { id: toastId });
+      console.error("❌ Contact submit error:", err);
+    } finally {
+      setProcessing(false);
+    }
+  };
+
   return (
-    <main className="flex-1 px-10 py-12 md:px-20 lg:px-40 bg-[var(--frozen-bg)] min-h-screen">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
-        {/* Left Section */}
-        <div className="flex flex-col gap-8">
-          <div>
-            <h1 className="frozen-heading tracking-tight text-4xl md:text-5xl font-bold leading-tight">
-              Get in Touch
-            </h1>
-            <p className="frozen-text text-lg font-normal leading-relaxed mt-4">
-              I'm always open to discussing new projects, creative ideas, or
-              opportunities to be part of your visions. Feel free to reach out!
-            </p>
-          </div>
+    <main className="max-w-7xl mx-auto py-12 px-6">
+      <Toaster
+        position="top-right"
+        toastOptions={{ style: { background: "#333", color: "#fff" } }}
+      />
+      <h1 className="text-3xl font-bold mb-6 text-teal-800">Contact Us</h1>
 
-          <div className="space-y-6">
-            {/* Email */}
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full frozen-bg-secondary flex items-center justify-center">
-                <span className="material-symbols-outlined text-[var(--frozen-heading)]">
-                  mail
-                </span>
-              </div>
-              <div>
-                <h3 className="frozen-heading font-semibold text-lg">Email</h3>
-                <a
-                  href="mailto:fareenashah00@gmail.com"
-                  className="frozen-text hover:text-[var(--frozen-primary)] transition-colors"
-                >
-                  fareenashah00@gmail.com
-                </a>
-              </div>
-            </div>
-
-            {/* Phone */}
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full frozen-bg-secondary flex items-center justify-center">
-                <span className="material-symbols-outlined text-[var(--frozen-heading)]">
-                  call
-                </span>
-              </div>
-              <div>
-                <h3 className="frozen-heading font-semibold text-lg">Phone</h3>
-                <a
-                  href="tel:+919324258669"
-                  className="frozen-text hover:text-[var(--frozen-primary)] transition-colors"
-                >
-                  +91 9324258669
-                </a>
-              </div>
-            </div>
-
-            {/* Location */}
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full frozen-bg-secondary flex items-center justify-center">
-                <span className="material-symbols-outlined text-[var(--frozen-heading)]">
-                  location_on
-                </span>
-              </div>
-              <div>
-                <h3 className="frozen-heading font-semibold text-lg">
-                  Location
-                </h3>
-                <p className="frozen-text">Santacruz East, Mumbai</p>
-              </div>
+      <div className="flex gap-6">
+        {/* Left Column */}
+        <div className="w-1/3 space-y-6 bg-teal-50 p-6 rounded-md border">
+          <h2 className="text-xl font-semibold text-teal-900">Get in Touch</h2>
+          <p className="text-sm text-teal-700">
+            Have a question or want to collaborate? Reach out directly or use
+            the form.
+          </p>
+          <ul className="space-y-2 text-teal-800">
+            <li>📍 Bandra, Mumbai, India</li>
+            <li>
+              📞{" "}
+              <a
+                href="tel:+919967651474"
+                className="text-teal-600 hover:underline"
+              >
+                +91-9967651474
+              </a>
+            </li>
+            <li>
+              ✉️{" "}
+              <a
+                href="mailto:fareenashah00@gmail.com"
+                className="text-teal-600 hover:underline"
+              >
+                fareenashah00@gmail.com
+              </a>
+            </li>
+          </ul>
+          <div className="pt-4">
+            <h3 className="font-semibold text-teal-700">Important Links</h3>
+            <div className="flex gap-3 mt-2">
+              <a
+                href="https://www.linkedin.com/in/fareena-shah-b349b7358/"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+              >
+                🌐 LinkedIn
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Right Section (Form) */}
-        <div className="bg-white p-8 rounded-xl shadow-lg">
-          <form className="space-y-6">
+        {/* Right Column */}
+        <div className="w-2/3 bg-white p-6 rounded-md border shadow-sm">
+          <h2 className="text-xl font-semibold mb-4 text-teal-700">
+            Send a Message
+          </h2>
+          <form onSubmit={handleSubmit} className="space-y-4">
             <input
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
               placeholder="Your Name"
-              className="form-input w-full rounded-lg text-[var(--frozen-text)] 
-              focus:outline-none focus:ring-2 focus:ring-[var(--frozen-primary)] 
-              border frozen-border bg-white h-14 p-4 text-base frozen-placeholder"
+              className="w-full p-3 border rounded-md focus:ring-2 outline-none"
+              required
+              disabled={processing}
             />
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="Your Email"
-              className="form-input w-full rounded-lg text-[var(--frozen-text)] 
-              focus:outline-none focus:ring-2 focus:ring-[var(--frozen-primary)] 
-              border frozen-border bg-white h-14 p-4 text-base frozen-placeholder"
+              className="w-full p-3 border rounded-md focus:ring-2 outline-none"
+              required
+              disabled={processing}
             />
             <input
               type="text"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
               placeholder="Subject"
-              className="form-input w-full rounded-lg text-[var(--frozen-text)] 
-              focus:outline-none focus:ring-2 focus:ring-[var(--frozen-primary)] 
-              border frozen-border bg-white h-14 p-4 text-base frozen-placeholder"
+              className="w-full p-3 border rounded-md focus:ring-2 outline-none"
+              required
+              disabled={processing}
             />
             <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
               placeholder="Your Message"
-              className="form-input w-full rounded-lg text-[var(--frozen-text)] 
-              focus:outline-none focus:ring-2 focus:ring-[var(--frozen-primary)] 
-              border frozen-border bg-white min-h-36 p-4 text-base frozen-placeholder"
-            ></textarea>
+              rows={4}
+              className="w-full p-3 border rounded-md focus:ring-2 outline-none"
+              required
+              disabled={processing}
+            />
             <button
               type="submit"
-              className="w-full h-12 px-6 rounded-lg frozen-button 
-              text-base font-bold leading-normal tracking-wide flex items-center justify-center"
+              disabled={processing}
+              className="w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white py-3 rounded-md hover:opacity-90 transition"
             >
-              Send Message
+              {processing ? "Sending..." : "Send Message"}
             </button>
           </form>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="flex justify-center py-8 mt-12 border-t frozen-border">
-        <div className="text-center">
-          <p className="frozen-text text-base font-normal leading-normal">
-            © 2024 Fareena Iqbal Shah. All rights reserved.
-          </p>
-        </div>
-      </footer>
     </main>
-  )
+  );
 }

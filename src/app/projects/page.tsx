@@ -1,55 +1,110 @@
-// app/projects/page.tsx
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+
+// Sample static projects data
+const projects = [
+  {
+    id: 1,
+    title: "E-commerce Platform",
+    description:
+      "Developed a fully functional e-commerce platform with user authentication, product management, and payment gateway integration.",
+    image:
+      "https://images.unsplash.com/photo-1612831665766-c0378e03e09b?auto=format&fit=crop&w=800&q=80",
+    year: 2023,
+  },
+  {
+    id: 2,
+    title: "Portfolio Website",
+    description:
+      "Designed and developed a personal portfolio website to showcase skills and projects, focusing on clean UI/UX and responsiveness.",
+    image:
+      "https://images.unsplash.com/photo-1605902711622-cfb43c4430b7?auto=format&fit=crop&w=800&q=80",
+    year: 2022,
+  },
+  {
+    id: 3,
+    title: "Task Management App",
+    description:
+      "Built a full-stack task management app with drag-and-drop interface, notifications, and analytics dashboard.",
+    image:
+      "https://images.unsplash.com/photo-1590608897129-79dca8f4f5ff?auto=format&fit=crop&w=800&q=80",
+    year: 2023,
+  },
+];
 
 export default function ProjectsPage() {
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+
   return (
-    <div className="relative flex size-full min-h-screen flex-col overflow-x-hidden bg-[var(--c-ice-blue)] text-gray-800 font-['Plus Jakarta Sans','Noto Sans',sans-serif]">
-      {/* Main */}
-      <main className="flex-1 px-4 sm:px-10 md:px-20 lg:px-40 py-12">
-        <div className="layout-content-container flex flex-col max-w-5xl mx-auto">
-          {/* Hero Section */}
-          <section className="@container">
-            <div
-              className="flex min-h-[480px] flex-col gap-6 rounded-2xl bg-cover bg-center bg-no-repeat p-8 @[480px]:gap-8 items-start justify-end shadow-xl"
-              style={{
-                backgroundImage:
-                  'linear-gradient(to top, rgba(70, 130, 180, 0.7) 0%, rgba(0, 0, 139, 0.3) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAgUCpmolLEfLy4Rl6j4MGTTXzAIB9q36Morjx-EE8gMFOFWMG2zwixreDj-PZDKSf6HVqroXgOTm1oF_k5K_DAO8n4zBw7mTnuJEaQvmSUEddymO7Hl-I8QOTGWIn_hH0Mjme1wrHRmI1MWQXGQKrW9alQD3S0q7xCNi5KKXftlNZ7kDo6k1HESvQnF6bBgW-a6wOk7mCIL_4eMU4CQk-lbsIYUKpn3p0caKAesnbtIM36n94LMV3iXQRKl8hl-FjD7tUoo5t3eu6t")',
-              }}
-            >
-              <div className="flex flex-col gap-4 text-left">
-                <h1 className="text-white text-5xl font-extrabold leading-tight tracking-tighter @[480px]:text-6xl">
-                  Fareena Iqbal Shah
-                </h1>
-                <p className="text-[var(--c-ice-blue)] text-base font-light leading-relaxed max-w-2xl @[480px]:text-lg">
-                  Web Developer with nearly 2 years of experience, specializing
-                  in creating innovative and responsive web applications.
-                  Passionate about clean UI/UX and performance optimization.
-                </p>
-              </div>
-              <a
-                href="#projects"
-                className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-[var(--c-deep-sky-blue)] text-white text-base font-bold leading-normal tracking-wide shadow-lg transition-transform hover:scale-105"
-              >
-                <span className="truncate">View Projects</span>
-              </a>
-            </div>
-          </section>
+    <main className="flex flex-1 justify-center py-10 sm:py-16 md:py-20 bg-[var(--background-color)] text-[var(--text-primary)]">
+      <div className="mx-auto flex w-full max-w-7xl flex-col px-4 sm:px-6 lg:px-8 gap-16">
 
-          {/* Projects */}
-          {/* (keep your Featured + Other Projects sections as-is, same structure as your HTML) */}
-        </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-[var(--c-light-blue)] mt-16">
-        <div className="max-w-5xl mx-auto flex flex-col items-center gap-6 px-5 py-10 text-center">
-          <p className="text-[var(--c-steel-blue)] text-sm font-normal leading-normal">
-            © 2024 Fareena Iqbal Shah. All rights reserved.
+        {/* About / Projects Section */}
+        <section className="text-center mb-12">
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+            Projects
+          </h1>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-[var(--text-secondary)]">
+            Explore a collection of my projects showcasing web development, full-stack applications, and innovative solutions.
           </p>
+        </section>
+
+        {/* Projects Grid */}
+        <div className="grid gap-12 md:grid-cols-2">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="relative flex flex-col gap-4 rounded-2xl bg-[var(--secondary-color)] p-6 cursor-pointer group"
+              onClick={() => setSelectedProject(project)}
+            >
+              {/* Image */}
+              <div
+                className="h-64 w-full rounded-lg bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                style={{ backgroundImage: `url(${project.image})` }}
+              ></div>
+
+              {/* Details */}
+              <div className="flex flex-col">
+                <h3 className="text-2xl font-bold">{project.title}</h3>
+                <p className="mt-2 text-[var(--text-secondary)] line-clamp-3">
+                  {project.description}
+                </p>
+                <span className="mt-2 text-sm font-medium text-gray-500">
+                  📅 {project.year}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
-      </footer>
-    </div>
+
+        {/* Modal */}
+        {selectedProject && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+            <div className="relative w-full max-w-3xl rounded-xl bg-white p-8 shadow-xl">
+              <button
+                className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl font-bold"
+                onClick={() => setSelectedProject(null)}
+              >
+                &times;
+              </button>
+              <div className="flex flex-col gap-6">
+                <div
+                  className="h-64 w-full rounded-lg bg-cover bg-center"
+                  style={{ backgroundImage: `url(${selectedProject.image})` }}
+                ></div>
+                <h2 className="text-3xl font-bold">{selectedProject.title}</h2>
+                <p className="text-[var(--text-secondary)] leading-relaxed">
+                  {selectedProject.description}
+                </p>
+                <span className="text-sm font-medium text-gray-500">
+                  📅 {selectedProject.year}
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </main>
   );
 }

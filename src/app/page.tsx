@@ -1,31 +1,52 @@
-// app/page.tsx
-export default function Home() {
+import Link from "next/link";
+
+export default function HomePage() {
   return (
-    <main className="bg-frozen-white text-frozen-dark-text font-sans min-h-screen flex flex-col">
-      <section className="relative flex items-center justify-center min-h-[calc(100vh-80px)] bg-frozen-hero bg-cover bg-center p-6">
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div className="relative z-10 text-center text-white max-w-3xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6">
-            Crafting Digital Experiences with Precision and Passion
-          </h1>
-          <p className="text-lg text-frozen-silver leading-relaxed mb-8">
-            Hi, I’m <span className="font-semibold">Fareena Iqbal Shah</span> —
-            Web Developer with nearly 2 years of experience…
-          </p>
-          <a className="inline-flex items-center justify-center rounded-lg h-12 px-6 bg-frozen-blue hover:bg-frozen-dark-blue text-white shadow-lg hover:shadow-xl transition-all">
-            View Projects
-          </a>
-          <a
-            href="/fs/assets/FareenaShah_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full h-12 px-8 border-2 border-frozen-dark-blue text-frozen-dark-blue font-medium hover:bg-frozen-dark-blue hover:text-white shadow-sm transition-all"
-          >
-            <span>Download Resume</span>
-            <span className="material-symbols-outlined ml-2">download</span>
-          </a>
-        </div>
-      </section>
-    </main>
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-grow">
+        {/* ❄️ Hero Section */}
+        <section className="py-20 sm:py-32 relative">
+          <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto text-center section-glass">
+              {/* Name + Tagline */}
+              <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-frozen">
+                Fareena Iqbal Shah
+              </h1>
+              <p className="mt-4 text-xl font-semibold text-frozen">
+                Web Developer | WordPress • MERN • Next.js
+              </p>
+
+              {/* Short Bio */}
+              <p className="mt-6 max-w-2xl mx-auto text-lg leading-relaxed text-[var(--text-primary)]">
+                I’m a passionate Web Developer with nearly 2 years of experience
+                building modern, responsive, and user-friendly applications.
+                Skilled in React, Node.js, WordPress, Git, Figma, HTML/CSS,
+                JavaScript, Bootstrap, and AngularJS — I love crafting clean,
+                innovative, and accessible digital experiences.
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                {/* Download Resume Button */}
+                <a
+                  href="/FareenaShah_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-frozen w-full sm:w-auto flex items-center justify-center"
+                >
+                  Download Resume
+                </a>
+
+                <Link href="/contact" passHref>
+                  <button className="w-full sm:w-auto flex items-center justify-center px-8 py-3 border border-[var(--secondary-color)] text-base font-semibold rounded-full text-[var(--text-primary)] bg-transparent hover:bg-[var(--secondary-color)] hover:text-white transition-all duration-300 transform hover:scale-105">
+                    Contact Me
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
   );
 }

@@ -1,20 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;700;800');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+@import "tailwindcss";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ❄️ Frozen Theme Variables */
 :root {
-  --frozen-light-blue: #a8dff4;
-  --frozen-blue: #74d4ea;
-  --frozen-dark-blue: #0077c2;
-  --frozen-purple: #8768a4;
-  --frozen-silver: #e2e8f0;
-  --frozen-white: #ffffff;
-  --frozen-dark-text: #2d3748;
+  --primary-color: #5dade2; /* Ice Blue */
+  --secondary-color: #a569bd; /* Soft Frozen Purple */
+  --accent-color: #76e4f7; /* Frosty Aqua */
+  --background-color: #f0f8ff; /* Snow White */
+  --text-primary: #1e3a8a; /* Deep Winter Blue */
+  --text-secondary: #475569; /* Muted Frost Gray */
+  --gradient-frozen: linear-gradient(135deg, #5dade2, #a569bd, #76e4f7);
 }
 
+/* ❄️ Base Styling */
 body {
-  @apply bg-frozen-white text-frozen-dark-text font-sans;
+  font-family: "Be Vietnam Pro", sans-serif;
+  background: var(--gradient-frozen);
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--text-primary);
+  transition: all 0.3s ease-in-out;
+}
+
+/* ❄️ Section Glassmorphism */
+.section-glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(93, 173, 226, 0.25);
+  padding: 1.5rem;
+}
+
+/* ❄️ Text Selection */
+* {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+img {
+  pointer-events: none;
+}
+
+/* ❄️ Code Blocks (Frozen Glow) */
+.prose-pre-wrap pre,
+.prose-pre-wrap code {
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: rgba(93, 173, 226, 0.15);
+  border-left: 4px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 1rem;
+  color: var(--text-primary);
+}
+
+/* ❄️ Frozen Buttons */
+.btn-frozen {
+  background: var(--gradient-frozen);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease-in-out;
+}
+.btn-frozen:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(93, 173, 226, 0.3);
+}
+
+/* ❄️ Frozen Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  background: var(--gradient-frozen);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ❄️ Links */
+a {
+  color: var(--primary-color);
+  transition: color 0.3s ease-in-out;
+}
+a:hover {
+  color: var(--accent-color);
 }
