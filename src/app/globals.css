@@ -4,37 +4,96 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ❄️ Frozen Theme Variables */
+/* ❄️ Dual-Tone Frozen Theme Variables */
 :root {
-  --primary-color: #5dade2; /* Ice Blue */
+  --primary-color: #5dade2; /* Light Ice Blue */
   --secondary-color: #a569bd; /* Soft Frozen Purple */
   --accent-color: #76e4f7; /* Frosty Aqua */
-  --background-color: #f0f8ff; /* Snow White */
+  --background-color: #e6f0fa; /* Arctic Light Blue */
+  --surface-color: #ffffff; /* Card / Section Background */
   --text-primary: #1e3a8a; /* Deep Winter Blue */
   --text-secondary: #475569; /* Muted Frost Gray */
-  --gradient-frozen: linear-gradient(135deg, #5dade2, #a569bd, #76e4f7);
+  --text-white: #475569; /* Muted Frost Gray */
+  --border-color: #d1d5db; /* Soft Border */
 }
 
-/* ❄️ Base Styling */
+/* 🩵 Base Styling */
 body {
-  font-family: "Be Vietnam Pro", sans-serif;
-  background: var(--gradient-frozen);
-  background-attachment: fixed;
-  background-size: cover;
+  font-family: "Be Vietnam Pro", "Inter", sans-serif;
+  background-color: var(--background-color);
   color: var(--text-primary);
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* 🪶 Section Surface / Glass-Style Cards */
+.section-glass {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(93, 173, 226, 0.1);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+.section-glass:hover {
+  box-shadow: 0 6px 16px rgba(93, 173, 226, 0.15);
+}
+
+/* ✨ Text Selection */
+::selection {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* 🧊 Code Blocks */
+.prose-pre-wrap pre,
+.prose-pre-wrap code {
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #eaf4fc; /* Arctic icy code block background */
+  border-left: 4px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 1rem;
+  color: var(--text-primary);
+}
+
+/* 🔘 Buttons */
+.btn-frozen {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
   transition: all 0.3s ease-in-out;
 }
-
-/* ❄️ Section Glassmorphism */
-.section-glass {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(12px);
-  border-radius: 1rem;
-  box-shadow: 0 8px 24px rgba(93, 173, 226, 0.25);
-  padding: 1.5rem;
+.btn-frozen:hover {
+  background-color: var(--secondary-color);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 8px 18px rgba(93, 173, 226, 0.2);
 }
 
-/* ❄️ Text Selection */
+/* 🧭 Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* 🔗 Links */
+a {
+  color: var(--primary-color);
+  transition: color 0.25s ease;
+}
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* 🧩 Utility Tweaks */
 * {
   user-select: none;
   -webkit-user-drag: none;
@@ -44,45 +103,7 @@ img {
   pointer-events: none;
 }
 
-/* ❄️ Code Blocks (Frozen Glow) */
-.prose-pre-wrap pre,
-.prose-pre-wrap code {
-  white-space: pre-wrap;
-  word-break: break-word;
-  background: rgba(93, 173, 226, 0.15);
-  border-left: 4px solid var(--primary-color);
-  border-radius: 8px;
-  padding: 1rem;
-  color: var(--text-primary);
-}
-
-/* ❄️ Frozen Buttons */
-.btn-frozen {
-  background: var(--gradient-frozen);
-  color: white;
-  font-weight: 600;
-  padding: 0.75rem 1.25rem;
-  border-radius: 9999px;
-  transition: all 0.3s ease-in-out;
-}
-.btn-frozen:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(93, 173, 226, 0.3);
-}
-
-/* ❄️ Frozen Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  background: var(--gradient-frozen);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ❄️ Links */
-a {
-  color: var(--primary-color);
-  transition: color 0.3s ease-in-out;
-}
-a:hover {
-  color: var(--accent-color);
+/* 🌤️ Optional Hero Background */
+.hero-bg {
+  background: radial-gradient(circle at top left, #dceffa 0%, #f3eafc 70%);
 }

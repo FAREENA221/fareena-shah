@@ -14,12 +14,12 @@ const achievements = [
 // Skeleton card
 function SkeletonAchievementCard() {
   return (
-    <div className="animate-pulse relative flex flex-col gap-4 rounded-2xl bg-[var(--secondary-color)] p-6 shadow-lg">
+    <div className="animate-pulse relative flex flex-col gap-4 rounded-2xl bg-[var(--frozen-card-bg)] p-6 shadow-lg">
       <div className="flex items-center gap-4">
-        <div className="w-10 h-10 rounded-full bg-gray-400"></div>
-        <div className="h-6 bg-gray-400 rounded w-3/4"></div>
+        <div className="w-10 h-10 rounded-full bg-gray-300"></div>
+        <div className="h-6 bg-gray-300 rounded w-3/4"></div>
       </div>
-      <div className="mt-2 h-4 bg-gray-400 rounded w-full"></div>
+      <div className="mt-2 h-4 bg-gray-300 rounded w-full"></div>
     </div>
   );
 }
@@ -54,13 +54,17 @@ export default function AchievementsPage() {
             : achievements.map((ach) => (
                 <div
                   key={ach.id}
-                  className="relative flex flex-col gap-4 rounded-2xl bg-[var(--secondary-color)] p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer group"
+                  className="relative flex flex-col gap-4 rounded-2xl bg-[var(--frozen-card-bg)] p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer group"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-lg">
+                    {/* Dual-tone circle */}
+                    <div
+                      className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white text-lg"
+                      style={{ background: "linear-gradient(135deg, #dbeafe, #e9d5ff)" }}
+                    >
                       {ach.id}
                     </div>
-                    <h3 className="text-2xl font-bold">{ach.title}</h3>
+                    <h3 className="text-2xl font-bold text-[var(--text-primary)]">{ach.title}</h3>
                   </div>
                   <p className="mt-2 text-[var(--text-secondary)]">{ach.description}</p>
                 </div>

@@ -1,13 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-// Skeleton Card Component
+// Skeleton Loader for Project Cards
 function SkeletonProjectCard() {
   return (
-    <div className="flex flex-col gap-4 rounded-2xl bg-[var(--frozen-card-bg)] p-6 shadow-lg animate-pulse">
-      <div className="w-full aspect-video bg-gray-300 rounded-lg"></div>
-      <div className="h-6 bg-gray-300 rounded w-3/4"></div>
-      <div className="h-4 bg-gray-300 rounded w-full mt-2"></div>
+    <div className="flex flex-col gap-4 rounded-2xl bg-white/40 backdrop-blur-md p-6 shadow-md animate-pulse border border-white/30">
+      <div className="w-full aspect-video bg-gray-300/50 rounded-lg"></div>
+      <div className="h-6 bg-gray-300/50 rounded w-3/4"></div>
+      <div className="h-4 bg-gray-300/50 rounded w-full mt-2"></div>
     </div>
   );
 }
@@ -15,7 +15,6 @@ function SkeletonProjectCard() {
 export default function AboutPage() {
   const [loading, setLoading] = useState(true);
 
-  // Fake loading simulation
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(timer);
@@ -41,35 +40,37 @@ export default function AboutPage() {
 
   return (
     <div
-      className="bg-gradient-to-br from-[var(--frozen-bg-start)] to-[var(--frozen-bg-end)] min-h-screen text-[var(--frozen-text)]"
+      className="min-h-screen bg-[linear-gradient(135deg,#f9fafb,#e2e8f0)] text-[var(--frozen-text)]"
       style={{ fontFamily: '"Plus Jakarta Sans", "Noto Sans", sans-serif' }}
     >
-      <main className="px-4 md:px-20 lg:px-40 py-10 flex flex-col gap-16">
-        {/* Hero */}
-        <section id="hero" className="flex flex-col items-center text-center gap-6">
-          <h1 className="text-5xl md:text-6xl font-black">Fareena Iqbal Shah</h1>
-          <p className="text-lg md:text-xl text-[var(--frozen-secondary-text)] max-w-3xl">
-            Web Developer with nearly 2 years of experience, specializing in creating innovative and user-friendly web applications.
+      <main className="px-4 md:px-20 lg:px-40 py-14 flex flex-col gap-16">
+        {/* Hero Section */}
+        <section className="text-center max-w-4xl mx-auto bg-white/40 backdrop-blur-md border border-white/30 rounded-2xl p-10 shadow-md">
+          <h1 className="text-5xl md:text-6xl font-black mb-3 text-gray-900">
+            Fareena Iqbal Shah
+          </h1>
+          <p className="text-lg md:text-xl text-gray-700">
+            Web Developer · WordPress · MERN · Next.js
+          </p>
+          <p className="mt-6 text-[var(--frozen-secondary-text)] text-base md:text-lg">
+            I am a dedicated web developer with a strong foundation in front-end
+            and back-end technologies. My experience spans across e-commerce,
+            portfolio, and interactive applications, with a focus on precision,
+            performance, and clean design.
           </p>
           <a
             href="#projects"
-            className="mt-4 px-6 py-3 rounded-full bg-[var(--frozen-accent)] text-white font-bold shadow-lg hover:bg-[var(--frozen-accent-dark)] transition-colors"
+            className="inline-block mt-6 px-6 py-3 rounded-full bg-[#dbeafe] text-[#1e3a8a] font-bold shadow-lg hover:bg-[#bfdbfe] transition-colors"
           >
             View Projects
           </a>
         </section>
 
-        {/* About */}
-        <section id="about" className="scroll-mt-20 text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold pb-6">About Me</h2>
-          <p className="text-lg text-[var(--frozen-secondary-text)] leading-relaxed">
-            I am a dedicated web developer with a strong foundation in front-end and back-end technologies. My experience spans across various projects, from e-commerce platforms to interactive web applications.
-          </p>
-        </section>
-
         {/* Skills */}
-        <section id="skills" className="scroll-mt-20">
-          <h2 className="text-3xl font-bold pb-6 text-center">Skills</h2>
+        <section className="bg-white/40 backdrop-blur-md border border-white/30 rounded-2xl p-10 shadow-md">
+          <h2 className="text-3xl font-bold pb-6 text-center text-gray-900">
+            Skills
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { title: "Front-End", desc: "HTML, CSS, JavaScript, React" },
@@ -79,33 +80,42 @@ export default function AboutPage() {
             ].map((skill, i) => (
               <div
                 key={i}
-                className="flex flex-col gap-2 p-6 text-center bg-[var(--frozen-card-bg)] rounded-2xl shadow-lg hover:-translate-y-1 transition-transform"
+                className="flex flex-col gap-2 p-6 text-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-md border border-white/30 hover:-translate-y-1 transition-transform"
               >
-                <h3 className="font-bold">{skill.title}</h3>
-                <p className="text-sm text-[var(--frozen-secondary-text)]">{skill.desc}</p>
+                <h3 className="font-semibold text-gray-900">{skill.title}</h3>
+                <p className="text-sm text-gray-700">{skill.desc}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* Projects */}
-        <section id="projects" className="scroll-mt-20">
-          <h2 className="text-3xl font-bold pb-6 text-center">Projects</h2>
+        <section
+          id="projects"
+          className="bg-white/40 backdrop-blur-md border border-white/30 rounded-2xl p-10 shadow-md"
+        >
+          <h2 className="text-3xl font-bold pb-6 text-center text-gray-900">
+            Projects
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {loading
-              ? Array(3).fill(0).map((_, i) => <SkeletonProjectCard key={i} />)
+              ? Array(3)
+                  .fill(0)
+                  .map((_, i) => <SkeletonProjectCard key={i} />)
               : projects.map((proj, i) => (
                   <div
                     key={i}
-                    className="flex flex-col gap-4 rounded-2xl bg-[var(--frozen-card-bg)] shadow-lg overflow-hidden group"
+                    className="flex flex-col gap-4 rounded-2xl bg-white/60 backdrop-blur-sm shadow-md overflow-hidden border border-white/30 group"
                   >
                     <div
                       className="w-full aspect-video bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
                       style={{ backgroundImage: `url(${proj.img})` }}
                     ></div>
                     <div className="p-6 pt-0">
-                      <h3 className="text-lg font-bold">{proj.title}</h3>
-                      <p className="text-sm text-[var(--frozen-secondary-text)]">{proj.desc}</p>
+                      <h3 className="text-lg font-bold text-gray-900">
+                        {proj.title}
+                      </h3>
+                      <p className="text-sm text-gray-700">{proj.desc}</p>
                     </div>
                   </div>
                 ))}

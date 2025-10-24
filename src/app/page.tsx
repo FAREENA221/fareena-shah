@@ -1,49 +1,59 @@
+"use client";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <main className="flex-grow">
-        {/* ❄️ Hero Section */}
-        <section className="py-20 sm:py-32 relative">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-[var(--background-color)]">
+      <main className="flex-grow w-full">
+        <section className="py-20 sm:py-28 relative">
           <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center section-glass">
-              {/* Name + Tagline */}
-              <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-frozen">
+            <motion.div
+              className="max-w-4xl mx-auto text-center section-glass"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              {/* 👤 Name + Title */}
+              <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight mb-3 text-[var(--primary-color)]">
                 Fareena Iqbal Shah
               </h1>
-              <p className="mt-4 text-xl font-semibold text-frozen">
-                Web Developer | WordPress • MERN • Next.js
+              <p className="text-lg sm:text-xl font-medium text-[var(--secondary-color)] mb-6">
+                Web Developer · WordPress · MERN · Next.js
               </p>
 
-              {/* Short Bio */}
-              <p className="mt-6 max-w-2xl mx-auto text-lg leading-relaxed text-[var(--text-primary)]">
-                I’m a passionate Web Developer with nearly 2 years of experience
-                building modern, responsive, and user-friendly applications.
-                Skilled in React, Node.js, WordPress, Git, Figma, HTML/CSS,
-                JavaScript, Bootstrap, and AngularJS — I love crafting clean,
-                innovative, and accessible digital experiences.
+              {/* 🌸 Bio */}
+              <p className="text-base sm:text-lg leading-relaxed text-[var(--text-secondary)] max-w-2xl mx-auto">
+                I’m a web developer with nearly 2 years of experience in
+                building responsive, performance-focused, and user-friendly
+                digital products. Skilled in React, Node.js, WordPress, and
+                Figma — passionate about delivering clean, efficient, and
+                elegant code.
               </p>
 
-              {/* CTA Buttons */}
-              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                {/* Download Resume Button */}
-                <a
+              {/* 🎯 CTA Buttons */}
+              <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                <motion.a
                   href="/FareenaShah_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-frozen w-full sm:w-auto flex items-center justify-center"
+                  className="btn-frozen w-full sm:w-auto flex items-center justify-center text-lg font-semibold hover:text-white"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  Download Resume
-                </a>
-
+                  <i className="ri-download-2-line mr-2"></i> Download Resume
+                </motion.a>
                 <Link href="/contact" passHref>
-                  <button className="w-full sm:w-auto flex items-center justify-center px-8 py-3 border border-[var(--secondary-color)] text-base font-semibold rounded-full text-[var(--text-primary)] bg-transparent hover:bg-[var(--secondary-color)] hover:text-white transition-all duration-300 transform hover:scale-105">
-                    Contact Me
-                  </button>
+                  <motion.button
+                    className="w-full sm:w-auto flex items-center justify-center px-8 py-3 border-2 border-[var(--secondary-color)] rounded-full text-[var(--text-primary)] font-semibold bg-transparent hover:bg-[var(--secondary-color)] hover:text-white transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <i className="ri-chat-1-line mr-2"></i> Contact Me
+                  </motion.button>
                 </Link>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
       </main>

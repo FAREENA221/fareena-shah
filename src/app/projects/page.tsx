@@ -2,13 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 
-// Sample static projects data
 const projects = [
   {
     id: 1,
     title: "E-commerce Platform",
     description:
-      "Developed a fully functional e-commerce platform with user authentication, product management, and payment gateway integration.",
+      "Developed a full-fledged e-commerce platform with authentication, product management, and integrated payments.",
     image:
       "https://images.unsplash.com/photo-1612831665766-c0378e03e09b?auto=format&fit=crop&w=800&q=80",
     year: 2023,
@@ -17,7 +16,7 @@ const projects = [
     id: 2,
     title: "Portfolio Website",
     description:
-      "Designed and developed a personal portfolio website to showcase skills and projects, focusing on clean UI/UX and responsiveness.",
+      "Designed and deployed a personal portfolio with responsive UI and smooth animations using Next.js and Tailwind.",
     image:
       "https://images.unsplash.com/photo-1605902711622-cfb43c4430b7?auto=format&fit=crop&w=800&q=80",
     year: 2022,
@@ -26,109 +25,100 @@ const projects = [
     id: 3,
     title: "Task Management App",
     description:
-      "Built a full-stack task management app with drag-and-drop interface, notifications, and analytics dashboard.",
+      "Built a clean and modern task management app with drag-and-drop, progress tracking, and analytics dashboard.",
     image:
       "https://images.unsplash.com/photo-1590608897129-79dca8f4f5ff?auto=format&fit=crop&w=800&q=80",
     year: 2023,
   },
 ];
 
-// Skeleton card
-function SkeletonProjectCard() {
+function SkeletonCard() {
   return (
-    <div className="animate-pulse flex flex-col gap-4 rounded-2xl bg-gray-200 p-6">
-      <div className="h-64 w-full rounded-lg bg-gray-300"></div>
-      <div className="h-6 bg-gray-300 rounded w-3/4"></div>
-      <div className="h-4 bg-gray-300 rounded w-full"></div>
-      <div className="h-4 bg-gray-300 rounded w-1/2 mt-2"></div>
-    </div>
+    <div className="animate-pulse rounded-xl bg-gray-200/70 h-56"></div>
   );
 }
 
 export default function ProjectsPage() {
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [selected, setSelected] = useState<typeof projects[0] | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // Fake loading effect
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500);
+    const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <main className="flex flex-1 justify-center py-10 sm:py-16 md:py-20 bg-[var(--background-color)] text-[var(--text-primary)]">
-      <div className="mx-auto flex w-full max-w-7xl flex-col px-4 sm:px-6 lg:px-8 gap-16">
+    <main className="min-h-screen bg-[#f9fafb] text-gray-800 py-16 px-6 md:px-12">
+      <section className="max-w-6xl mx-auto text-center mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+          Projects
+        </h1>
+        <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
+          A selection of projects that highlight my work in full-stack
+          development, UI/UX, and web technologies.
+        </p>
+      </section>
 
-        {/* About / Projects Section */}
-        <section className="text-center mb-12">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-            Projects
-          </h1>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-[var(--text-secondary)]">
-            Explore a collection of my projects showcasing web development, full-stack applications, and innovative solutions.
-          </p>
-        </section>
-
-        {/* Projects Grid */}
-        <div className="grid gap-12 md:grid-cols-2">
-          {loading
-            ? Array(3)
-                .fill(0)
-                .map((_, i) => <SkeletonProjectCard key={i} />)
-            : projects.map((project) => (
-                <div
-                  key={project.id}
-                  className="relative flex flex-col gap-4 rounded-2xl bg-[var(--secondary-color)] p-6 cursor-pointer group"
-                  onClick={() => setSelectedProject(project)}
-                >
-                  {/* Image */}
-                  <div
-                    className="h-64 w-full rounded-lg bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                    style={{ backgroundImage: `url(${project.image})` }}
-                  ></div>
-
-                  {/* Details */}
-                  <div className="flex flex-col">
-                    <h3 className="text-2xl font-bold">{project.title}</h3>
-                    <p className="mt-2 text-[var(--text-secondary)] line-clamp-3">
-                      {project.description}
-                    </p>
-                    <span className="mt-2 text-sm font-medium text-gray-500">
-                      📅 {project.year}
-                    </span>
-                  </div>
-                </div>
-              ))}
-        </div>
-
-        {/* Modal */}
-        {selectedProject && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
-            <div className="relative w-full max-w-3xl rounded-xl bg-white p-8 shadow-xl">
-              <button
-                className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl font-bold"
-                onClick={() => setSelectedProject(null)}
+      {/* Project Cards */}
+      <section className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {loading
+          ? Array(3)
+              .fill(0)
+              .map((_, i) => <SkeletonCard key={i} />)
+          : projects.map((project) => (
+              <div
+                key={project.id}
+                className="group cursor-pointer rounded-xl border border-gray-200 bg-white/70 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300"
+                onClick={() => setSelected(project)}
               >
-                &times;
-              </button>
-              <div className="flex flex-col gap-6">
                 <div
-                  className="h-64 w-full rounded-lg bg-cover bg-center"
-                  style={{ backgroundImage: `url(${selectedProject.image})` }}
+                  className="h-48 w-full bg-cover bg-center rounded-t-xl"
+                  style={{ backgroundImage: `url(${project.image})` }}
                 ></div>
-                <h2 className="text-3xl font-bold">{selectedProject.title}</h2>
-                <p className="text-[var(--text-secondary)] leading-relaxed">
-                  {selectedProject.description}
-                </p>
-                <span className="text-sm font-medium text-gray-500">
-                  📅 {selectedProject.year}
-                </span>
+                <div className="p-5 text-left">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 line-clamp-2">
+                    {project.description}
+                  </p>
+                  <span className="block text-xs text-gray-500 mt-2">
+                    📅 {project.year}
+                  </span>
+                </div>
               </div>
+            ))}
+      </section>
+
+      {/* Modal */}
+      {selected && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+          <div className="relative w-full max-w-md bg-white rounded-xl shadow-xl p-6">
+            <button
+              className="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-xl"
+              onClick={() => setSelected(null)}
+            >
+              &times;
+            </button>
+
+            <div className="flex flex-col gap-4">
+              <div
+                className="h-48 w-full rounded-lg bg-cover bg-center"
+                style={{ backgroundImage: `url(${selected.image})` }}
+              ></div>
+              <h2 className="text-2xl font-bold text-gray-900">
+                {selected.title}
+              </h2>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {selected.description}
+              </p>
+              <span className="text-xs text-gray-500">
+                📅 {selected.year}
+              </span>
             </div>
           </div>
-        )}
-
-      </div>
+        </div>
+      )}
     </main>
   );
 }
