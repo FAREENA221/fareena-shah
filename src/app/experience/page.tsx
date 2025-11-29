@@ -57,7 +57,7 @@ export default function ExperiencePage() {
               Experience
             </h1>
             <p className="frozen-secondary-text text-base mt-4 max-w-2xl">
-              Passionate web developer with nearly 2 years of experience,
+              Passionate Software Developer with nearly 2 years of experience,
               specializing in creating innovative and responsive web
               applications. Committed to clean UI/UX, accessibility, and
               performance optimization.

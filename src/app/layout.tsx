@@ -16,14 +16,14 @@ const publicSans = Public_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Fareena Iqbal Shah – Web Developer",
+    default: "Fareena Iqbal Shah – Software Developer",
     template: "%s | Fareena Iqbal Shah",
   },
   description:
-    "Fareena Iqbal Shah — Web Developer (WordPress, MERN Stack, Next.js). Built modern, accessible websites with a focus on performance, UX and scalable frontends.",
+    "Fareena Iqbal Shah — Software Developer (WordPress, MERN Stack, Next.js). Built modern, accessible websites with a focus on performance, UX and scalable frontends.",
   keywords: [
     "Fareena Iqbal Shah",
-    "Web Developer Mumbai",
+    "Software Developer Mumbai",
     "MERN Stack",
     "Next.js",
     "WordPress",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://fareena-shah.vercel.app"),
   alternates: { canonical: "https://fareena-shah.vercel.app" },
   openGraph: {
-    title: "Fareena Iqbal Shah – Web Developer",
+    title: "Fareena Iqbal Shah – Software Developer",
     description:
       "Portfolio of Fareena Iqbal Shah — building modern web apps with WordPress, MERN, and Next.js.",
     url: "https://fareena-shah.vercel.app",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fareena Iqbal Shah – Web Developer",
+    title: "Fareena Iqbal Shah – Software Developer",
     description: "Portfolio of Fareena — WordPress, MERN, Next.js developer.",
     images: ["https://fareena-shah.vercel.app/og-image.jpg"],
   },
@@ -76,7 +76,7 @@ export default function RootLayout({
         "@type": "Person",
         name: "Fareena Iqbal Shah",
         url: "https://fareena-shah.vercel.app",
-        jobTitle: "Web Developer",
+        jobTitle: "Software Developer",
         email: "fareenashah00@gmail.com",
         telephone: "+91 9324258669",
         address: {

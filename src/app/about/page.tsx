@@ -50,10 +50,10 @@ export default function AboutPage() {
             Fareena Iqbal Shah
           </h1>
           <p className="text-lg md:text-xl text-gray-700">
-            Web Developer · WordPress · MERN · Next.js
+            Software Developer · WordPress · MERN · Next.js
           </p>
           <p className="mt-6 text-[var(--frozen-secondary-text)] text-base md:text-lg">
-            I am a dedicated web developer with a strong foundation in front-end
+            I am a dedicated Software Developer with a strong foundation in front-end
             and back-end technologies. My experience spans across e-commerce,
             portfolio, and interactive applications, with a focus on precision,
             performance, and clean design.

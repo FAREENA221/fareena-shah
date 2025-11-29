@@ -19,12 +19,12 @@ export default function HomePage() {
                 Fareena Iqbal Shah
               </h1>
               <p className="text-lg sm:text-xl font-medium text-[var(--secondary-color)] mb-6">
-                Web Developer · WordPress · MERN · Next.js
+                Software Developer · WordPress · MERN · Next.js
               </p>
 
               {/* 🌸 Bio */}
               <p className="text-base sm:text-lg leading-relaxed text-[var(--text-secondary)] max-w-2xl mx-auto">
-                I’m a web developer with nearly 2 years of experience in
+                I’m a Software Developer with nearly 2 years of experience in
                 building responsive, performance-focused, and user-friendly
                 digital products. Skilled in React, Node.js, WordPress, and
                 Figma — passionate about delivering clean, efficient, and
