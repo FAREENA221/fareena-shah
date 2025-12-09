@@ -21,22 +21,45 @@ export default function AboutPage() {
   }, []);
 
   const projects = [
-    {
-      title: "E-commerce Platform",
-      desc: "Developed a full-fledged e-commerce platform with user authentication, product management, and payment gateway integration.",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC1Klgr6D-A5UVAuTsL91fzm-5OsrGlHtsRosw8JoQCfhCi-Szi5vZu7JkWt0WgTYP2QucMS4tqlU_XmgkazUnkSpw5zXlnAz9XdusCr1TYmX0Kmg3U3_IaA89P4d5wwp0oBQmWPD5MNAf-RIShblHyhvwxfOE-WKvx0RXtL-zCivNR1pKrXJAbXiTObHI4-S6kgyYrfFSL9QAOX6Lsk6Il-PDBHEzZmNVrAJveJ1EnC6VFfqp3YziibdP-zlazVPA7zViKcCYiPv64",
-    },
-    {
-      title: "Interactive Web App",
-      desc: "Created an interactive web application with real-time data updates and dynamic user interfaces.",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDVMbo36QtoD7p994-tNGFF4Z_ylc50npFJuXaT7oa6Vg0krgjaPMguOTl0nnSXiCT0NigZDp8DDOs0AzJjmuQaV1uTI81OTWClerX4El7bdLVy_sbsWEso5JfiHeXgy6cW93eWXQANfUe02Mg6AKqOKk2-51GWBVsj5ec7Qpbfbwa9YUc7_Gz4Z__BBTuseBR373bdTTNhCzQNfRd2D4RACk5pIEhFZ4dqlHphYrjViRh2pYBwIlsD6w0E8ZMotf_0bdTsCN4sWH4T",
-    },
-    {
-      title: "Portfolio Website",
-      desc: "Designed and developed a personal portfolio website to showcase skills and projects.",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBk3y4GTsvTyGW-TJpzUl8NYVoKc0wYXfcPdwJK1ZD52iHE7SAqMc4MLUuxhUig6t-xR_ZbWYGkTC1JKU3d4AAkJjFnGcul1qDWoIX5MUrfO_ZY-WDySTq3-zlP6Kg19N1N0REn0F0OEvU8ZX8kyz2nkZlaHrggRJnjvm1ga1fUZ2PhFwgav_j3RifX_FqLEJBeaMWq1-sKh2xuXNqAz1kHiPqKpIAcM2L69Oyho0igrSgdufZ8iiETJ1ngvPzC7DzSiM9aPrNET-RI",
-    },
-  ];
+  {
+    title: "Paperfolio – Digital Portfolio Builder",
+    desc: "A clean and responsive portfolio builder built using Next.js and Tailwind CSS, allowing creators to showcase projects and skills with a modern aesthetic.",
+    link: "https://paperfolio-seven.vercel.app/",
+    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC1Klgr6D-A5UVAuTsL91fzm-5OsrGlHtsRosw8JoQCfhCi-Szi5vZu7JkWt0WgTYP2QucMS4tqlU_XmgkazUnkSpw5zXlnAz9XdusCr1TYmX0Kmg3U3_IaA89P4d5wwp0oBQmWPD5MNAf-RIShblHyhvwxfOE-WKvx0RXtL-zCivNR1pKrXJAbXiTObHI4-S6kgyYrfFSL9QAOX6Lsk6Il-PDBHEzZmNVrAJveJ1EnC6VFfqp3YziibdP-zlazVPA7zViKcCYiPv64",
+  },
+  {
+    title: "FS Newsletter – Weekly News App",
+    desc: "A newsletter-style web application built using React.js with optimized UI components and a clean, content-focused layout.",
+    link: "https://fs-newsletter.vercel.app/",
+    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDVMbo36QtoD7p994-tNGFF4Z_ylc50npFJuXaT7oa6Vg0krgjaPMguOTl0nnSXiCT0NigZDp8DDOs0AzJjmuQaV1uTI81OTWClerX4El7bdLVy_sbsWEso5JfiHeXgy6cW93eWXQANfUe02Mg6AKqOKk2-51GWBVsj5ec7Qpbfbwa9YUc7_Gz4Z__BBTuseBR373bdTTNhCzQNfRd2D4RACk5pIEhFZ4dqlHphYrjViRh2pYBwIlsD6w0E8ZMotf_0bdTsCN4sWH4T",
+  },
+  {
+    title: "Stremir – Movies & Series Explorer",
+    desc: "An entertainment browsing platform using Next.js, featuring category-based filtering and API-based dynamic content fetching.",
+    link: "https://stremir.vercel.app/",
+    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBk3y4GTsvTyGW-TJpzUl8NYVoKc0wYXfcPdwJK1ZD52iHE7SAqMc4MLUuxhUig6t-xR_ZbWYGkTC1JKU3d4AAkJjFnGcul1qDWoIX5MUrfO_ZY-WDySTq3-zlP6Kg19N1N0REn0F0OEvU8ZX8kyz2nkZlaHrggRJnjvm1ga1fUZ2PhFwgav_j3RifX_FqLEJBeaMWq1-sKh2xuXNqAz1kHiPqKpIAcM2L69Oyho0igrSgdufZ8iiETJ1ngvPzC7DzSiM9aPrNET-RI",
+  },
+  {
+    title: "Codesis – Web Agency Website",
+    desc: "A professional agency website built using React.js and Tailwind CSS, featuring responsive design, smooth UI, and clean layouts.",
+    link: "https://codesis-project.vercel.app/",
+    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDVMbo36QtoD7p994-tNGFF4Z_ylc50npFJuXaT7oa6Vg0krgjaPMguOTl0nnSXiCT0NigZDp8DDOs0AzJjmuQaV1uTI81OTWClerX4El7bdLVy_sbsWEso5JfiHeXgy6cW93eWXQANfUe02Mg6AKqOKk2-51GWBVsj5ec7Qpbfbwa9YUc7_Gz4Z__BBTuseBR373bdTTNhCzQNfRd2D4RACk5pIEhFZ4dqlHphYrjViRh2pYBwIlsD6w0E8ZMotf_0bdTsCN4sWH4T",
+  },
+//   {
+//   title: "Employee Task Management System",
+//   desc: "A task management system where admins can assign, update, and track employee tasks with roles, dashboards, and status management. Built with MERN stack architecture.",
+//   link: "https://employee-task-demo.vercel.app/", // dummy link
+//   img: "https://via.placeholder.com/600x400?text=Employee+Task+Management+System",
+// },
+// {
+//   title: "Voting App with Node.js",
+//   desc: "A secure and real-time voting platform developed using Node.js and Express. Includes authentication, vote tracking, and live result visualization.",
+//   link: "https://node-voting-app-demo.vercel.app/", // dummy link
+//   img: "https://via.placeholder.com/600x400?text=Voting+App+with+Node.js",
+// },
+
+];
+
 
   return (
     <div
@@ -73,8 +96,8 @@ export default function AboutPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: "Front-End", desc: "HTML, CSS, JavaScript, React" },
-              { title: "Back-End", desc: "Node.js, Express, Python" },
+              { title: "Front-End", desc: "HTML, CSS, JavaScript, React.js, Next.js, Tailwind Css, Boostrap" },
+              { title: "Back-End", desc: "Node.js, Express.js, Strapi" },
               { title: "Database", desc: "MySQL, MongoDB" },
               { title: "Version Control", desc: "Git, Github" },
             ].map((skill, i) => (
@@ -98,28 +121,33 @@ export default function AboutPage() {
             Projects
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {loading
-              ? Array(3)
-                  .fill(0)
-                  .map((_, i) => <SkeletonProjectCard key={i} />)
-              : projects.map((proj, i) => (
-                  <div
-                    key={i}
-                    className="flex flex-col gap-4 rounded-2xl bg-white/60 backdrop-blur-sm shadow-md overflow-hidden border border-white/30 group"
-                  >
-                    <div
-                      className="w-full aspect-video bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-                      style={{ backgroundImage: `url(${proj.img})` }}
-                    ></div>
-                    <div className="p-6 pt-0">
-                      <h3 className="text-lg font-bold text-gray-900">
-                        {proj.title}
-                      </h3>
-                      <p className="text-sm text-gray-700">{proj.desc}</p>
-                    </div>
-                  </div>
-                ))}
+  {loading
+    ? Array(3)
+        .fill(0)
+        .map((_, i) => <SkeletonProjectCard key={i} />)
+    : projects.map((proj, i) => (
+        <a
+          key={i}
+          href={proj.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col gap-4 rounded-2xl bg-white/60 backdrop-blur-sm shadow-md overflow-hidden border border-white/30 group cursor-pointer"
+        >
+          <div
+            className="w-full aspect-video bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+            style={{ backgroundImage: `url(${proj.img})` }}
+          ></div>
+
+          <div className="p-6 pt-0">
+            <h3 className="text-lg font-bold text-gray-900">
+              {proj.title}
+            </h3>
+            <p className="text-sm text-gray-700">{proj.desc}</p>
           </div>
+        </a>
+      ))}
+</div>
+
         </section>
       </main>
     </div>

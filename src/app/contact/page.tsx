@@ -7,7 +7,7 @@ export default function ContactPage() {
     {
       name: "GitHub",
       icon: <FaGithub size={28} />,
-      link: "https://github.com/yourusername",
+      link: "https://github.com/FAREENA221",
       color: "hover:text-gray-900",
     },
     {

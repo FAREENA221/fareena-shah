@@ -4,17 +4,23 @@ import React, { useState, useEffect } from "react";
 
 // Static experience data
 const experienceList = [
-  {
+    {
     id: 1,
-    role: "Junior Software Developer",
+    role: "Associate Software Developer",
     company: "IIDE, Mumbai",
-    period: "Jan 2022 - Present",
+    period: "May 2024 - November 2025",
   },
   {
     id: 2,
+    role: "Junior Software Developer",
+    company: "IIDE, Mumbai",
+    period: "Feb 2024 - April 2025",
+  },
+  {
+    id: 3,
     role: "Web Development Intern",
-    company: "Tech Solutions Inc., Remote",
-    period: "Jun 2021 - Dec 2021",
+    company: "IIDE, Mumbai",
+    period: "JUly 2023 - Jan 2024",
   },
 ];
 
@@ -57,10 +63,7 @@ export default function ExperiencePage() {
               Experience
             </h1>
             <p className="frozen-secondary-text text-base mt-4 max-w-2xl">
-              Passionate Software Developer with nearly 2 years of experience,
-              specializing in creating innovative and responsive web
-              applications. Committed to clean UI/UX, accessibility, and
-              performance optimization.
+              Passionate Software Developer with 2.4 years of experience specializing in Next.js, React, and JavaScript. Skilled in building responsive, high-performance web applications with a strong focus on user experience and optimization. Proven track record in developing scalable solutions, including a user feedback portal and SEO-optimized projects.
             </p>
           </div>
         </section>

@@ -24,17 +24,14 @@ export default function HomePage() {
 
               {/* 🌸 Bio */}
               <p className="text-base sm:text-lg leading-relaxed text-[var(--text-secondary)] max-w-2xl mx-auto">
-                I’m a Software Developer with nearly 2 years of experience in
-                building responsive, performance-focused, and user-friendly
-                digital products. Skilled in React, Node.js, WordPress, and
-                Figma — passionate about delivering clean, efficient, and
-                elegant code.
+               {`I’m a Software Developer with 2.4 years of hands-on experience specializing in React.js and Next.js, focused on building responsive, high-performance, and user-centric web applications. I also have strong experience with WordPress development, including custom themes, plugins, and performance optimization.
+                I write clean, scalable, and maintainable code, and enjoy transforming ideas into elegant digital experiences. Currently, I am enhancing my full-stack capabilities by pursuing a MERN Stack Developer Certification at Keerti Institute, Dadar, strengthening my proficiency across MongoDB, Express.js, React.js, and Node.js.`}
               </p>
 
               {/* 🎯 CTA Buttons */}
               <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
                 <motion.a
-                  href="/FareenaShah_Resume.pdf"
+                  href="/new-resume-fareena-shah.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-frozen w-full sm:w-auto flex items-center justify-center text-lg font-semibold hover:text-white"

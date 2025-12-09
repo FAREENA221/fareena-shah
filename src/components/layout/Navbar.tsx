@@ -50,7 +50,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           {/* Resume Button */}
           <a
-            href="/FareenaShah_Resume.pdf"
+            href="/new-resume-fareena-shah.pdf"
             target="_blank"
             rel="noopener noreferrer"
             title="Download Resume"
@@ -101,7 +101,7 @@ export default function Navbar() {
           <NavLinks onClickLink={() => setMobileMenuOpen(false)} />
           {/* Resume Button (Mobile) */}
           <a
-            href="/FareenaShah_Resume.pdf"
+            href="/new-resume-fareena-shah.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center text-white font-semibold text-sm h-10 w-10 rounded-full bg-transparent "
