@@ -1,6 +1,5 @@
 "use client";
 
-import logo from "@/assets/fs_logo.png";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
@@ -33,7 +32,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <div
               className="h-8 w-8 bg-center bg-contain bg-no-repeat"
-              style={{ backgroundImage: `url(${logo.src})` }}
+              style={{ backgroundImage: "url('/fs_logo.png')" }}
             />
             <h1 className="text-xl font-bold tracking-tight text-[var(--text-primary)]">
               Fareena Iqbal Shah
@@ -43,7 +42,7 @@ export default function Navbar() {
 
         {/* Center: Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8 flex-1 justify-center">
-          <NavLinks onClickLink={() => {}} />
+          <NavLinks onClickLink={() => { }} />
         </nav>
 
         {/* Right: Resume Button (Desktop) & Mobile Menu */}
@@ -93,9 +92,8 @@ export default function Navbar() {
       {/* Mobile Menu Dropdown */}
       <div
         ref={menuRef}
-        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileMenuOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
-        }`}
+        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
+          }`}
       >
         <div className="flex flex-col gap-4 px-6 pb-4">
           <NavLinks onClickLink={() => setMobileMenuOpen(false)} />
