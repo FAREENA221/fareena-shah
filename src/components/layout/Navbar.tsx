@@ -1,6 +1,6 @@
 "use client";
 
-import logo from "@/assets/logosnm.png";
+import logo from "@/assets/fs_logo.png";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 

@@ -20,16 +20,19 @@ export const metadata: Metadata = {
     template: "%s | Fareena Iqbal Shah",
   },
   description:
-    "Fareena Iqbal Shah — Software Developer (WordPress, MERN Stack, Next.js). Built modern, accessible websites with a focus on performance, UX and scalable frontends.",
+    "Portfolio of Fareena Iqbal Shah — Software Developer specializing in WordPress, MERN Stack, React, and Next.js. Creating modern, accessible, high-performance websites and scalable web applications.",
   keywords: [
     "Fareena Iqbal Shah",
     "Software Developer Mumbai",
-    "MERN Stack",
-    "Next.js",
-    "WordPress",
-    "Frontend Developer",
+    "Next.js Developer",
     "React Developer",
-    "Node.js",
+    "Frontend Developer Mumbai",
+    "Web Developer Portfolio",
+    "WordPress Developer",
+    "MERN Stack Developer",
+    "UI Developer",
+    "Full Stack Developer",
+    "JavaScript Expert",
   ],
   applicationName: "Fareena Portfolio",
   authors: [
@@ -39,11 +42,30 @@ export const metadata: Metadata = {
   publisher: "Fareena Iqbal Shah",
   robots: { index: true, follow: true },
   metadataBase: new URL("https://fareena-shah.vercel.app"),
-  alternates: { canonical: "https://fareena-shah.vercel.app" },
+  alternates: {
+    canonical: "https://fareena-shah.vercel.app",
+  },
+
+  // --------------------------
+  // Favicon + Icons + Manifest
+  // --------------------------
+  icons: {
+    icon: "/fs_logo.png",
+    shortcut: "/fs_logo.png",
+    apple: "/fs_logo.png",
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/fs_logo.png",
+      },
+    ],
+  },
+  manifest: "/manifest.json",
+
   openGraph: {
     title: "Fareena Iqbal Shah – Software Developer",
     description:
-      "Portfolio of Fareena Iqbal Shah — building modern web apps with WordPress, MERN, and Next.js.",
+      "Portfolio showcasing modern web development with WordPress, React, Next.js, and MERN stack.",
     url: "https://fareena-shah.vercel.app",
     siteName: "Fareena Portfolio",
     locale: "en_IN",
@@ -53,14 +75,25 @@ export const metadata: Metadata = {
         url: "https://fareena-shah.vercel.app/og-image.jpg",
         width: 1200,
         height: 630,
+        alt: "Fareena Iqbal Shah Portfolio Preview",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Fareena Iqbal Shah – Software Developer",
-    description: "Portfolio of Fareena — WordPress, MERN, Next.js developer.",
+    description:
+      "Explore projects and work by Fareena — specialist in MERN Stack, WordPress, Next.js & UI development.",
     images: ["https://fareena-shah.vercel.app/og-image.jpg"],
+    creator: "@fareena_dev",
+  },
+
+  // Additional mobile SEO
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
   },
 };
 
@@ -69,9 +102,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // -------------------------------------------------------------------
+  //           ---------- FULL GENERATIVE SEO STRUCTURED DATA ----------
+  // -------------------------------------------------------------------
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
+      // PERSON
       {
         "@type": "Person",
         name: "Fareena Iqbal Shah",
@@ -79,30 +116,44 @@ export default function RootLayout({
         jobTitle: "Software Developer",
         email: "fareenashah00@gmail.com",
         telephone: "+91 9324258669",
+        image: "https://fareena-shah.vercel.app/fs_logo.png",
         address: {
           "@type": "PostalAddress",
           addressLocality: "Santacruz East",
           addressRegion: "Maharashtra",
           addressCountry: "IN",
         },
-        alumniOf: { "@type": "CollegeOrUniversity", name: "Chetana College" },
+        alumniOf: {
+          "@type": "CollegeOrUniversity",
+          name: "Chetana College",
+        },
         sameAs: [
           "https://linkedin.com/in/yourprofile",
           "https://github.com/yourprofile",
+          "https://stremir.vercel.app/",
+          "https://island-verse.vercel.app/",
+          "https://fs-newsletter.vercel.app/",
+          "https://paperfolio-fs.vercel.app/",
+          "https://codesis-project.vercel.app/",
         ],
         knowsAbout: [
           "React",
-          "Node.js",
           "Next.js",
           "WordPress",
+          "MERN Stack",
+          "Node.js",
           "JavaScript",
+          "UI Development",
+          "Frontend Optimization",
           "Figma",
-          "HTML/CSS",
           "Bootstrap",
+          "HTML/CSS",
           "Git",
-          "AngularJS",
+          "Responsive Web Design",
         ],
       },
+
+      // WEBSITE
       {
         "@type": "WebSite",
         name: "Fareena Portfolio",
@@ -113,6 +164,62 @@ export default function RootLayout({
           "query-input": "required name=search_term_string",
         },
       },
+
+      // WEBPAGE
+      {
+        "@type": "WebPage",
+        name: "Home – Fareena Iqbal Shah",
+        url: "https://fareena-shah.vercel.app",
+        description:
+          "Portfolio of Mumbai-based Software Developer, creating modern React, WordPress, and Next.js applications.",
+      },
+
+      // ORGANIZATION
+      {
+        "@type": "Organization",
+        name: "Fareena Iqbal Shah",
+        url: "https://fareena-shah.vercel.app",
+        logo: "https://fareena-shah.vercel.app/fs_logo.png",
+        sameAs: [
+          "https://linkedin.com/in/yourprofile",
+          "https://github.com/yourprofile",
+        ],
+      },
+
+      // PROJECT LIST (Best for generative search)
+      {
+        "@type": "ItemList",
+        name: "Featured Projects",
+        itemListElement: [
+          {
+            "@type": "CreativeWork",
+            name: "Stremir",
+            url: "https://stremir.vercel.app/",
+          },
+          {
+            "@type": "CreativeWork",
+            name: "Island Verse",
+            url: "https://island-verse.vercel.app/",
+          },
+          {
+            "@type": "CreativeWork",
+            name: "FS Newsletter",
+            url: "https://fs-newsletter.vercel.app/",
+          },
+          {
+            "@type": "CreativeWork",
+            name: "Paperfolio",
+            url: "https://paperfolio-fs.vercel.app/",
+          },
+          {
+            "@type": "CreativeWork",
+            name: "Codesis Project",
+            url: "https://codesis-project.vercel.app/",
+          },
+        ],
+      },
+
+      // BREADCRUMB
       {
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -144,13 +251,16 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#74d4ea" />
         <meta name="color-scheme" content="light dark" />
+
         <script
           key="ld-json"
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
         />
       </head>
+
       <body
         className={`${publicSans.variable} antialiased bg-white text-textPrimary flex flex-col min-h-screen`}
       >
